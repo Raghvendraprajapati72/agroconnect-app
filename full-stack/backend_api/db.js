@@ -1,10 +1,7 @@
 const mysql = require("mysql2");
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "admin123", // ✅ यही missing था
-  database: "agroconnect"
+  uri: process.env.DATABASE_URL
 });
 
 db.connect((err) => {
