@@ -181,7 +181,7 @@ function Crops({ user }) {
   const deleteProduct = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/products/${id}`
+        `${import.meta.env.VITE_API_URL}/products/${id}`
       );
 
       setProducts(products.filter(p => p.id !== id));

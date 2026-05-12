@@ -68,7 +68,7 @@ export default function HelpDesk() {
 
         await axios.post(
 
-          "http://localhost:5000/helpdesk/add",
+          `${import.meta.env.VITE_API_URL}/helpdesk/add`,
 
           formData
         );

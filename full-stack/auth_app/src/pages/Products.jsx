@@ -80,7 +80,7 @@ export default function Products() {
                   src={
                     p.image?.startsWith("http")
                       ? p.image
-                      : `http://localhost:5000${p.image}`
+                      : `${import.meta.env.VITE_API_URL}${p.image}`
                   }
                   alt={p.name}
                   style={img}
