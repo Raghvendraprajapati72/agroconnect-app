@@ -85,7 +85,7 @@ export default function Login() {
         email.trim().toLowerCase();
 
       const res = await axios.post(
-        "${import.meta.env.VITE_API_URL}/auth/verify-otp",
+        `${import.meta.env.VITE_API_URL}/auth/verify-otp`,
         {
           email: formattedEmail,
           otp,
