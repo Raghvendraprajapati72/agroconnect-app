@@ -160,7 +160,7 @@ function Crops({ user }) {
       formData.append("file", file);
 
       await axios.post(
-        "http://localhost:5000/products/add",
+        `${import.meta.env.VITE_API_URL}/products/add`,
         formData
       );
 

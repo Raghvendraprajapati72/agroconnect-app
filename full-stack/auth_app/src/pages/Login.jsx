@@ -37,7 +37,7 @@ export default function Login() {
         email.trim().toLowerCase();
 
       const res = await axios.post(
-        "http://localhost:5000/auth/send-otp",
+        `${import.meta.env.VITE_API_URL}/auth/send-otp`,
         {
           email: formattedEmail,
           password,
