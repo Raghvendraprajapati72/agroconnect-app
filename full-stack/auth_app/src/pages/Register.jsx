@@ -45,7 +45,7 @@ export default function Register() {
       setLoading(true);
 
       await axios.post(
-        "${import.meta.env.VITE_API_URL}/auth/register",
+        `${import.meta.env.VITE_API_URL}/auth/register`,
         {
           name: data.name,
           email: data.email,
