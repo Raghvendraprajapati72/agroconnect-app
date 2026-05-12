@@ -89,7 +89,7 @@ function Dashboard({ user }) {
         }));
       });
 
-    axios.get("http://localhost:5000/orders")
+    axios.get("${import.meta.env.VITE_API_URL}/orders")
       .then(res => {
         setStats(prev => ({
           ...prev,

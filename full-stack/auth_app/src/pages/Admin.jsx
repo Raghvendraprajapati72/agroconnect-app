@@ -66,7 +66,7 @@ export default function Admin() {
     try {
 
       await axios.delete(
-        `http://localhost:5000/auth/users/${id}`
+        `${import.meta.env.VITE_API_URL}/auth/users/${id}`
       );
 
       loadUsers();

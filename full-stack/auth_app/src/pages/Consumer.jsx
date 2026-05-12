@@ -23,14 +23,14 @@ export default function Consumer() {
     axios.get(`${import.meta.env.VITE_API_URL}/cart/${user.id}`)
       .then(res => setCart(Array.isArray(res.data) ? res.data : []));
 
-    axios.get(`http://localhost:5000/follow/following/${user.id}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/follow/following/${user.id}`)
       .then(res => setFollowing(Array.isArray(res.data) ? res.data : []));
   }, []);
 
   /* ================= SEARCH USERS ================= */
   useEffect(() => {
     if (search.length > 2) {
-      axios.get(`http://localhost:5000/auth/search/${search}`)
+      axios.get(`${import.meta.env.VITE_API_URL}/auth/search/${search}`)
         .then(res => setUsers(res.data));
     } else {
       setUsers([]);
@@ -40,7 +40,7 @@ export default function Consumer() {
   /* ================= ACTIONS ================= */
 
   const addToCart = async (product) => {
-    await axios.post("http://localhost:5000/cart/add", {
+    await axios.post("${import.meta.env.VITE_API_URL}/cart/add", {
       userId: user.id,
       productId: product.id
     });
@@ -49,7 +49,7 @@ export default function Consumer() {
   };
 
   const checkout = async () => {
-    await axios.post("http://localhost:5000/payment/pay", {
+    await axios.post("${import.meta.env.VITE_API_URL}/payment/pay", {
       userId: user.id,
       amount: totalSpent
     });
@@ -59,7 +59,7 @@ export default function Consumer() {
   };
 
   const followUser = async (targetId) => {
-    await axios.post("http://localhost:5000/follow", {
+    await axios.post("${import.meta.env.VITE_API_URL}/follow", {
       userId: user.id,
       targetId
     });
@@ -187,7 +187,7 @@ export default function Consumer() {
           <>
             <h3>📺 Live Market</h3>
             <video width="400" controls>
-              <source src="http://localhost:5000/uploads/sample.mp4" />
+              <source src="${import.meta.env.VITE_API_URL}/uploads/sample.mp4" />
             </video>
           </>
         )}

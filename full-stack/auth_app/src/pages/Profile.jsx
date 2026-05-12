@@ -68,7 +68,7 @@ export default function Profile() {
 
       const res =
         await axios.get(
-          `http://localhost:5000/auth/profile/${id}`
+          `${import.meta.env.VITE_API_URL}/auth/profile/${id}`
         );
 
       setUser(res.data);
@@ -105,7 +105,7 @@ export default function Profile() {
 
         const followRes =
           await axios.get(
-            `http://localhost:5000/follow/following/${currentUser.id}`
+            `${import.meta.env.VITE_API_URL}/follow/following/${currentUser.id}`
           );
 
         const followCheck =
@@ -128,7 +128,7 @@ export default function Profile() {
   const follow = async () => {
 
     await axios.post(
-      "http://localhost:5000/follow",
+      "${import.meta.env.VITE_API_URL}/follow",
       {
         userId: currentUser.id,
         targetId: id,
@@ -145,7 +145,7 @@ export default function Profile() {
   const unfollow = async () => {
 
     await axios.post(
-      "http://localhost:5000/follow/unfollow",
+      "${import.meta.env.VITE_API_URL}/follow/unfollow",
       {
         userId: currentUser.id,
         targetId: id,
@@ -173,7 +173,7 @@ export default function Profile() {
 
       const res =
         await axios.get(
-          `http://localhost:5000/auth/search/${text}`
+          `${import.meta.env.VITE_API_URL}/auth/search/${text}`
         );
 
       setUsers(res.data);
@@ -224,7 +224,7 @@ export default function Profile() {
       }
 
       await axios.put(
-        `http://localhost:5000/auth/update/${id}`,
+        `${import.meta.env.VITE_API_URL}/auth/update/${id}`,
         data
       );
 
@@ -287,7 +287,7 @@ export default function Profile() {
                     <img
                       src={
                         u.image
-                          ? `http://localhost:5000${u.image}`
+                          ? `${import.meta.env.VITE_API_URL}${u.image}`
                           : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
                       }
                       alt=""
@@ -321,7 +321,7 @@ export default function Profile() {
         <img
           src={
             user.coverImage
-              ? `http://localhost:5000${user.coverImage}`
+              ? `${import.meta.env.VITE_API_URL}${user.coverImage}`
               : "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
           }
           alt=""
@@ -353,7 +353,7 @@ export default function Profile() {
         <img
           src={
             user.image
-              ? `http://localhost:5000${user.image}`
+              ? `${import.meta.env.VITE_API_URL}${user.image}`
               : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
           }
           alt=""

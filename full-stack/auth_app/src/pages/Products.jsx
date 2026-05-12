@@ -33,7 +33,7 @@ export default function Products() {
     if (!user) return alert("Login first ❌");
 
     try {
-      await axios.post("http://localhost:5000/cart/add", {
+      await axios.post("${import.meta.env.VITE_API_URL}/cart/add", {
         userId: user.id,
         productId
       });

@@ -77,7 +77,7 @@ export default function LiveStream() {
       try {
 
         await axios.post(
-          "http://localhost:5000/broadcast/add",
+          "${import.meta.env.VITE_API_URL}/broadcast/add",
           {
             title,
             url,

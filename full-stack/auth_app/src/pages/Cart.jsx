@@ -33,7 +33,7 @@ export default function Cart() {
   const removeItem = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:5000/cart/remove/${id}`
+        `${import.meta.env.VITE_API_URL}/cart/remove/${id}`
       );
 
       setItems(items.filter((i) => i.id !== id));
