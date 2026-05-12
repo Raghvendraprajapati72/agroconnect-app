@@ -9,7 +9,7 @@ export default function Products() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    axios.get("http://localhost:5000/products")
+    axios.get(`${import.meta.env.VITE_API_URL}/products`)
       .then(res => {
         console.log("PRODUCTS:", res.data);
 

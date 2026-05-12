@@ -13,7 +13,7 @@ export default function Cart() {
     if (!user) return;
 
     axios
-      .get(`http://localhost:5000/cart/${user.id}`)
+      .get(`${import.meta.env.VITE_API_URL}/cart/${user.id}`)
       .then((res) => {
         console.log("CART:", res.data);
 

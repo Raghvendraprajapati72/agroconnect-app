@@ -74,7 +74,7 @@ function Dashboard({ user }) {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:5000/products")
+    axios.get(`${import.meta.env.VITE_API_URL}/products`)
       .then(res => {
         const products = Array.isArray(res.data)
           ? res.data
@@ -129,7 +129,7 @@ function Crops({ user }) {
   const [file, setFile] = useState(null);
 
   const loadProducts = () => {
-    axios.get("http://localhost:5000/products")
+    axios.get(`${import.meta.env.VITE_API_URL}/products`)
       .then(res => {
         const data = Array.isArray(res.data)
           ? res.data
@@ -252,7 +252,7 @@ function Crops({ user }) {
 
             <div style={imageWrapper}>
               <img
-                src={`http://localhost:5000${p.image}`}
+                src={`${import.meta.env.VITE_API_URL}${p.image}`}
                 alt={p.name}
                 style={productImage}
               />

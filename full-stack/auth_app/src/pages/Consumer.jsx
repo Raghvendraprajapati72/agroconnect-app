@@ -13,14 +13,14 @@ export default function Consumer() {
 
   /* ================= LOAD DATA ================= */
   useEffect(() => {
-    axios.get("http://localhost:5000/products")
+    axios.get(`${import.meta.env.VITE_API_URL}/products`)
       .then(res => {
         if (Array.isArray(res.data)) setProducts(res.data);
         else if (Array.isArray(res.data.data)) setProducts(res.data.data);
         else setProducts([]);
       });
 
-    axios.get(`http://localhost:5000/cart/${user.id}`)
+    axios.get(`${import.meta.env.VITE_API_URL}/cart/${user.id}`)
       .then(res => setCart(Array.isArray(res.data) ? res.data : []));
 
     axios.get(`http://localhost:5000/follow/following/${user.id}`)

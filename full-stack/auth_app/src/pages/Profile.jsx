@@ -89,7 +89,7 @@ export default function Profile() {
 
       const productRes =
         await axios.get(
-          "http://localhost:5000/products"
+          `${import.meta.env.VITE_API_URL}/products`
         );
 
       const userProducts =
@@ -576,7 +576,7 @@ export default function Profile() {
               >
 
                 <img
-                  src={`http://localhost:5000${p.image}`}
+                  src={`${import.meta.env.VITE_API_URL}${p.image}`}
                   alt=""
                   style={productImg}
                 />

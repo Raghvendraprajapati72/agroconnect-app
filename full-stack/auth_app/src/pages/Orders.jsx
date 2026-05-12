@@ -32,7 +32,7 @@ export default function DeliveryStatus() {
 
         const res =
           await axios.get(
-            "http://localhost:5000/delivery"
+            `${import.meta.env.VITE_API_URL}/delivery`
           );
 
         setDeliveries(

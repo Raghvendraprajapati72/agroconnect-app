@@ -31,7 +31,7 @@ export default function Admin() {
 
       const res =
         await axios.get(
-          "http://localhost:5000/auth/users"
+          `${import.meta.env.VITE_API_URL}/auth/users`
         );
 
       setUsers(res.data);
@@ -49,7 +49,7 @@ export default function Admin() {
 
       const res =
         await axios.get(
-          "http://localhost:5000/videos"
+          `${import.meta.env.VITE_API_URL}/videos`
         );
 
       setVideos(res.data);
